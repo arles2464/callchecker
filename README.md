@@ -7,4 +7,4 @@ This code is extremely shit. Do not download it unless you are fucking retarded.
 
 
 **HOW TO USE**
-Basically just run the code, open up a discord call in a web browser and let the code do it's work.
+Basically just run the code, open up a discord call in firefox (make sure the orange banner is up the top and you have not joined the call) and let the code do it's work.
