@@ -32,16 +32,20 @@ while(1 > 0):
     numberSingle = True
     emergency = False
 
+    # Autoclicker so you dont go afk
+    mouse.move(536, 994)
+    mouse.click(button='left')
+
     # Checks if the person in the call IS NOT the only person in the call by comparing the pixel colour to the colour of the blackish grey background
-    if get_pixel_colour(1025, 215) != get_pixel_colour(1655, 300):
+    if get_pixel_colour(1025, 215) != get_pixel_colour(884, 129):
         numberSingle = False
         print("not single")
     # Checks if the person in the call IS the oly person in the call (see above for details)
-    if get_pixel_colour(1025, 215) == get_pixel_colour(1655, 300):
+    if get_pixel_colour(1025, 215) == get_pixel_colour(884, 129):
         numberSingle = True
         print("single")
     # Checks if the amount of people in the call is odd (see above for details)
-    if get_pixel_colour(1075, 250) == get_pixel_colour(1655, 300):
+    if get_pixel_colour(1075, 250) == get_pixel_colour(884, 129):
         numberOdd = True
         print("number is odd")
 
