@@ -24,6 +24,9 @@ while(0 > 1):
     print(pos)
     time.sleep(0.5)
 
+# Gets the colour of the join call button
+discordGreen = get_pixel_colour(1166, 331)
+
 # Main loop (Set 1 to 0 to deactivate)
 while(1 > 0):
 
@@ -31,6 +34,11 @@ while(1 > 0):
     numberOdd = False
     numberSingle = True
     emergency = False
+
+    # If the call button is green, click on it (If the bot leaves the call on it's own, it is because the program was started when the bot was already in the call)
+    if get_pixel_colour(1166, 331) == discordGreen:
+        mouse.move(1166, 331)
+        mouse.click(button='left')
 
     # Autoclicker so you dont go afk
     mouse.move(536, 994)
@@ -61,5 +69,6 @@ while(1 > 0):
         keyboard.type('@everyone ONLY ONE PERSON IN CALL')
         keyboard.press(Key.enter)
         keyboard.release(Key.enter)
+
     # Waits 5 seconds before re-checking
     time.sleep(5)
