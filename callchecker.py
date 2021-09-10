@@ -27,6 +27,9 @@ while(0 > 1):
 # Gets the colour of the join call button
 discordGreen = get_pixel_colour(1160, 303)
 
+# Gets the colour of the orange banner
+discordOrange = get_pixel_colour(93, 103)
+
 # Main loop (Set 1 to 0 to deactivate)
 while(1 > 0):
 
@@ -34,6 +37,12 @@ while(1 > 0):
     numberOdd = False
     numberSingle = True
     emergency = False
+
+    # If there is an orange banner, close it
+    if get_pixel_colour(93, 103) == discordOrange:
+       mouse.move(1902, 103)
+       mouse.click(button='left')
+       time.sleep(1)
 
     # If the call button is green, click on it (If the bot leaves the call on it's own, it is because the program was started when the bot was already in the call)
     if get_pixel_colour(1160, 303) == discordGreen:
