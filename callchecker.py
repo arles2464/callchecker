@@ -1,7 +1,9 @@
 # WARNING
 #
-# This code is extremely shit. It will break as soon as discord updates it's interface, or if we aren't in the correct tab, or if the browser is not Chrome (it might work on others, not tested yet)
-# This code probably (maybe, idk) also chugs RAM like a motherfucker, so probably restart it once in a while to stop it from crashing your PC
+# This code is extremely shit. It will break as soon as discord updates it's interface, or if we aren't in the correct tab, or if the browser is not Chrome
+# (it might work on others, not tested yet)
+#
+# This code also probably (maybe, idk) chugs RAM like a motherfucker, so probably restart it once in a while to stop it from crashing your PC
 
 # Imports
 import PIL.ImageGrab
