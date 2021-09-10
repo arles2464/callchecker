@@ -22,65 +22,54 @@ def get_pixel_colour(i_x, i_y):
 while(0 > 1):
     pos = mouse.get_position()
     print(pos)
+    print(get_pixel_colour(pos[0], pos[1]))
     time.sleep(0.5)
+    
+
+discordDarkGrey = (24, 25, 28)
 
 # Gets the colour of the join call button
-discordGreen = get_pixel_colour(1160, 303)
+discordGreen = (59, 165, 93)
 
 # Gets the colour of the orange banner
-discordOrange = get_pixel_colour(93, 103)
+discordOrange = (242, 101, 34)
 
 # Main loop (Set 1 to 0 to deactivate)
 while(1 > 0):
 
     # Definitions
-    numberOdd = False
+    numberOdd = True
     numberSingle = True
-    emergency = False
 
     # If there is an orange banner, close it
-    if get_pixel_colour(93, 103) == discordOrange:
-       mouse.move(1902, 103)
+    if get_pixel_colour(93, 30) == discordOrange:
+       mouse.move(1900, 16)
        mouse.click(button='left')
        time.sleep(1)
 
     # If the call button is green, click on it (If the bot leaves the call on it's own, it is because the program was started when the bot was already in the call)
-    if get_pixel_colour(1160, 303) == discordGreen:
-       mouse.move(1160, 303)
+    if get_pixel_colour(1165, 212) == discordGreen:
+       mouse.move(1165, 212)
        mouse.click(button='left')
 
     # Autoclicker so you dont go afk
-    mouse.move(536, 994)
+    mouse.move(470, 1030)
     mouse.click(button='left')
 
-    # Checks if the person in the call IS NOT the only person in the call by comparing the pixel colour to the colour of the blackish grey background
-    if get_pixel_colour(1052, 191) != get_pixel_colour(884, 129) and get_pixel_colour(1176, 191) != get_pixel_colour(884, 129):
-        numberSingle = False
-        print("not single")
-    # Checks if the person in the call IS the oly person in the call (see above for details)
-    if get_pixel_colour(1052, 191) == get_pixel_colour(884, 129) and get_pixel_colour(1176, 191) == get_pixel_colour(884, 129):
-        numberSingle = True
-        print("single")
-    # Checks if the amount of people in the call is odd (see above for details)
-    if get_pixel_colour(1052, 191) == get_pixel_colour(884, 129):
-        numberOdd = True
-        print("number is odd")
-    # If number of people is NOT odd, print that it is even
-    if numberOdd == False:
-        print("number is even")
-
-    # If the number of people in the call is odd, and it is NOT 'not single', set the emergency variable to true
-    if numberOdd == True and numberSingle == True:
-        emergency = True
-
-    # If we are in a call emergency (see above) then alert the call by pinging it
-    if emergency == True:
-        print("BRO HELP HELP HELP HELP HELP")
-        mouse.move(536, 994)
-        mouse.click(button='left')
-        keyboard.type('@everyone ONLY ONE PERSON IN CALL')
-        keyboard.press(Key.enter)
-        keyboard.release(Key.enter)
-
+    # Checks if not even
+    if get_pixel_colour(1115, 110) != discordDarkGrey:
+        print("The number of people in the call is ODD\n Performing Further Checks...")
+        # Checks if there is not more people in the call
+        if get_pixel_colour(1020, 110) == discordDarkGrey:
+            print("EMERGENCY")
+            mouse.move(470, 1030)
+            mouse.click(button='left')
+            keyboard.type('@everyone ONLY ONE PERSON IN CALL')
+            keyboard.press(Key.enter)
+            keyboard.release(Key.enter)
+        else:
+            print("3 or more people in the call\n All Clear")
+    else:
+        print("2 or More People in the Call\n All Clear")
     # Waits 5 seconds before re-checking
     time.sleep(5)
