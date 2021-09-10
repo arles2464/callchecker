@@ -35,6 +35,7 @@ discordGreen = (59, 165, 93)
 discordOrange = (242, 101, 34)
 
 # Main loop (Set 1 to 0 to deactivate)
+time.sleep(5)
 while(1 > 0):
 
     # Definitions
