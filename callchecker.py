@@ -26,12 +26,18 @@ while(0 > 1):
     time.sleep(0.5)
     
 
+# Locations
+joinCallButton = (887, 213)
+messageBox = (515, 717)
+orangeLocation = (120, 30)
+closeBanner = (1348, 19)
+membersList = (1095, 28)
+evenOnly = (839, 110)
+userLeft = (742, 107)
+
+# Colours
 discordDarkGrey = (24, 25, 28)
-
-# Gets the colour of the join call button
 discordGreen = (59, 165, 93)
-
-# Gets the colour of the orange banner
 discordOrange = (242, 101, 34)
 
 # Main loop (Set 1 to 0 to deactivate)
@@ -43,27 +49,28 @@ while(1 > 0):
     numberSingle = True
 
     # If there is an orange banner, close it
-    if get_pixel_colour(93, 30) == discordOrange:
-       mouse.move(1900, 16)
+    if get_pixel_colour(orangeLocation[0], orangeLocation[1]) == discordOrange:
+       mouse.move(closeBanner[0], closeBanner[1])
        mouse.click(button='left')
        time.sleep(1)
 
     # If the call button is green, click on it (If the bot leaves the call on it's own, it is because the program was started when the bot was already in the call)
-    if get_pixel_colour(1165, 212) == discordGreen:
-       mouse.move(1165, 212)
+    if get_pixel_colour(joinCallButton[0], joinCallButton[1]) == discordGreen:
+       mouse.move(joinCallButton[0], joinCallButton[1])
        mouse.click(button='left')
 
     # Autoclicker so you dont go afk
-    mouse.move(470, 1030)
+    mouse.move(membersList[0], membersList[1])
+    mouse.click(button='left')
     mouse.click(button='left')
 
     # Checks if not even
-    if get_pixel_colour(1115, 110) != discordDarkGrey:
+    if get_pixel_colour(evenOnly[0], evenOnly[1]) != discordDarkGrey:
         print("The number of people in the call is ODD\n Performing Further Checks...")
         # Checks if there is not more people in the call
-        if get_pixel_colour(1020, 110) == discordDarkGrey:
+        if get_pixel_colour(userLeft[0], userLeft[1]) == discordDarkGrey:
             print("EMERGENCY")
-            mouse.move(470, 1030)
+            mouse.move(messageBox[0], messageBox[1])
             mouse.click(button='left')
             keyboard.type('@everyone ONLY ONE PERSON IN CALL')
             keyboard.press(Key.enter)
