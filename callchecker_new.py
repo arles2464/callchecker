@@ -8,7 +8,7 @@ def get_pixel_colour(i_x, i_y):
 	return PIL.ImageGrab.grab().load()[i_x, i_y]
     
 # Debug Tool - Get current mouse position (set the 0 to any number above 1 to activate)
-while(0 > 1):
+while(false):
     currentMouseX, currentMouseY = pyautogui.position()
     print(currentMouseX, currentMouseY)
     print(get_pixel_colour(currentMouseX, currentMouseY))
